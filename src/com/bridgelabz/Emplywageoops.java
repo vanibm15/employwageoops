@@ -1,10 +1,13 @@
 package com.bridgelabz;
 
+
 public class Emplywageoops {
     int EMP_RATE_PER_HOUR = 20;
     int empHrs = 0;
     int empwage = 0;
-    int IS_FULL_TIME = 1;
+    public static final int IS_PART_TIME = 1;
+    public static final int IS_FULL_TIME = 2;
+
 
     //UC1
     static void method1() {
@@ -47,14 +50,35 @@ public class Emplywageoops {
 
     }
 
+    //creating 4th method;
+    static void employWageSwitchstatement() {
+        int EMP_RATE_PER_HOUR = 20;
+        int empHrs = 0;
+        int empwage = 0;
+        int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+        switch (empcheck) {
+            case IS_PART_TIME:
+                empHrs = 4;
+                break;
+            case IS_FULL_TIME:
+                empHrs = 8;
+                break;
+            default:
+                empHrs = 0;
+        }
+        empwage = empHrs * EMP_RATE_PER_HOUR;
+        System.out.println("Emp wage: " + empwage);
+
+    }
+
     public static void main(String[] args) {
         method1();//calling 1st method
         Emplywageoops obj1 = new Emplywageoops();//calling 2nd method
         obj1.dailyEmploywage();
         partTimeEmployWage();//calling method 3;
+        employWageSwitchstatement();//calling method4
     }
 }
-
 
 
 
